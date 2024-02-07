@@ -1,0 +1,23 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: prod-instance
+  namespace: flux-system
+spec:
+  image: ghcr.io/mbaykara/sample-app
+  interval: 1h
+  provider: generic
+
+---
+#ImagePolicy:
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: prod-instance
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: prod-instance
+  policy:
+    alphabetical:
+      order: asc
