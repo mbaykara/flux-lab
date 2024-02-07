@@ -14,15 +14,6 @@ spec:
         name: fmt-helmrepo
         namespace: flux-system
       interval: 1m
-  valuesFrom:
-  - kind: Secret
-    name: db-creds
-    valuesKey: DB_USERNAME
-    targetPath: secretEnv.DB_USERNAME
-  - kind: Secret
-    name: db-creds
-    valuesKey: DB_PASSWORD
-    targetPath: secretEnv.DB_PASSWORD
   values:
     image:
       repository: ghcr.io/mbaykara/sample-app
